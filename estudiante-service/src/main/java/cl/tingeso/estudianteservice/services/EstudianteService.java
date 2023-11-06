@@ -15,17 +15,17 @@ public class EstudianteService {
     public void guardarEstudiante(String rut, String apellidos, String nombres, String nacimiento,
                                   String tipo_colegio, String nombre_colegio, String egreso){
 
-        EstudianteEntity estudianteEntity = new EstudianteEntity();
+        EstudianteEntity estudiante = new EstudianteEntity();
 
-        estudianteEntity.setRut(rut);
-        estudianteEntity.setApellidos(apellidos);
-        estudianteEntity.setNombres(nombres);
-        estudianteEntity.setNacimiento(nacimiento);
-        estudianteEntity.setTipo_colegio(tipo_colegio);
-        estudianteEntity.setNombre_colegio(nombre_colegio);
-        estudianteEntity.setEgreso(egreso);
+        estudiante.setRut(rut);
+        estudiante.setApellidos(apellidos);
+        estudiante.setNombres(nombres);
+        estudiante.setNacimiento(nacimiento);
+        estudiante.setTipo_colegio(tipo_colegio);
+        estudiante.setNombre_colegio(nombre_colegio);
+        estudiante.setEgreso(egreso);
 
-        estudianteRepository.save(estudianteEntity);
+        estudianteRepository.save(estudiante);
     }
 
     public void borrarEstudiantes(){ estudianteRepository.deleteAll(); }

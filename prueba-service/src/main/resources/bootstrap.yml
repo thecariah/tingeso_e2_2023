@@ -1,0 +1,18 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: prueba-service
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://postgres:5433/pruebas
+    username: postgres
+    password: intihaku4523
+  jpa:
+    show-sql: true
+    hibernate:
+      dialect: PostgreSQLDialect
+      ddl-auto: create
+
+# falta eureka configuracion
