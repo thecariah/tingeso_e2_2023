@@ -18,7 +18,7 @@ public interface PruebaRepository extends JpaRepository<PruebaEntity, Long> {
     @Query("SELECT p FROM PruebaEntity p WHERE p.fecha = :fecha")
     List<PruebaEntity> findPruebasByFecha(@Param("fecha") String fecha);
 
-    //encontrar prueba especifica (por rut y fecha)
+    //encontrar prueba por rut y fecha
     @Query("SELECT p FROM PruebaEntity p WHERE p.rut = :rut AND p.fecha = :fecha")
-    PruebaEntity findPruebaByRutFecha(@Param("rut") String rut, @Param("fecha") String fecha);
+    List<PruebaEntity> findPruebaByRutFecha(@Param("rut") String rut, @Param("fecha") String fecha);
 }

@@ -1,6 +1,7 @@
 package cl.tingeso.estudianteservice.controllers;
 
 import cl.tingeso.estudianteservice.entities.EstudianteEntity;
+import cl.tingeso.estudianteservice.models.PruebaModel;
 import cl.tingeso.estudianteservice.services.EstudianteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -47,5 +48,17 @@ public class EstudianteController {
     @GetMapping("/delete")
     public void deleteEmpleados(){
         estudianteService.borrarEstudiantes();
+    }
+
+    @GetMapping("/pruebas/{rut}")
+    public ResponseEntity<List<PruebaModel>> getPruebasEstudiante(@PathVariable("rut") String rut) {
+        EstudianteEntity estudiante = estudianteService.obtenerEstudiantePorRut(rut);
+
+        if(estudiante == null){
+            return ResponseEntity.notFound().build();
+        }
+
+        List<PruebaModel> pruebas = estudianteService.obtenerPruebas(rut);
+        return ResponseEntity.ok(pruebas);
     }
 }

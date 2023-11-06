@@ -36,7 +36,7 @@ public class PruebaService {
         return this.pruebaRepository.findPruebasByFecha(fecha);
     }
 
-    public PruebaEntity obtenerPruebaEspecifica(String rut, String fecha){
+    public List<PruebaEntity> obtenerPruebaPorRutFecha(String rut, String fecha){
         return this.pruebaRepository.findPruebaByRutFecha(rut, fecha);
     }
 }

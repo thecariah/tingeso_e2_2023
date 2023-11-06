@@ -45,13 +45,13 @@ public class PruebaController {
     }
 
     @GetMapping("/buscar/{rut}/{fecha}")
-    public ResponseEntity<PruebaEntity> getPruebaEspecifica(@PathVariable("rut") String rut, @PathVariable("fecha") String fecha){
-        PruebaEntity prueba = pruebaService.obtenerPruebaEspecifica(rut, fecha);
+    public ResponseEntity<List<PruebaEntity>> getPruebaByRutFecha(@PathVariable("rut") String rut, @PathVariable("fecha") String fecha){
+        List<PruebaEntity> pruebas = pruebaService.obtenerPruebaPorRutFecha(rut, fecha);
 
-        if(prueba == null){
-            return ResponseEntity.notFound().build();
+        if(pruebas.isEmpty()){
+            return ResponseEntity.noContent().build();
         }
-        return ResponseEntity.ok(prueba);
+        return ResponseEntity.ok(pruebas);
     }
 
     @PostMapping("/new")
